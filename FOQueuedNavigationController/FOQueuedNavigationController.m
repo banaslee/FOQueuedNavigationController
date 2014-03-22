@@ -10,13 +10,19 @@
 
 #import <objc/runtime.h>
 
+#define DEFAULT_TIMEOUT 1.f
+
+typedef BOOL (^InvocationBlock)(void);
 @interface FOQueuedNavigationController () <UINavigationControllerDelegate>
 @property (nonatomic, weak) id<UINavigationControllerDelegate> originalDelegate;
+@property (nonatomic, weak) id<UINavigationControllerDelegate> delegate;
 @property (nonatomic) BOOL isTransitioning;
 @property (nonatomic, strong) NSMutableArray *invocationQueue;
 @end
 
 @implementation FOQueuedNavigationController
+
+@synthesize delegate = _delegate;
 
 #pragma mark - Class methods
 /**
@@ -54,15 +60,81 @@
 }
 
 #pragma mark - Instance methods
-- (id)init {
-    self = [super init];
+#pragma mark Overrides
+- (void)commonInitializer {
+    _delegate = self;
+}
+
+- (instancetype)initWithNavigationBarClass:(Class)navigationBarClass toolbarClass:(Class)toolbarClass {
+    self = [super initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
     if (self) {
-        self.delegate = self;
+        [self commonInitializer];
     }
     
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self commonInitializer];
+    }
+    
+    return self;
+}
+
+- (id)initWithRootViewController:(UIViewController *)rootViewController {
+    self = [super initWithRootViewController:rootViewController];
+    if (self) {
+        [self commonInitializer];
+    }
+    
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInitializer];
+    }
+    
+    return self;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self commonInitializer];
+    }
+    
+    return self;
+}
+
+- (void)pushViewController:(UIViewController *)viewController
+                  animated:(BOOL)animated {
+    [self pushViewController:viewController
+                    animated:animated
+                 withTimeout:DEFAULT_TIMEOUT];
+}
+
+- (NSArray *)popToRootViewControllerAnimated:(BOOL)animated {
+    return [self popToRootViewControllerAnimated:animated
+                                     withTimeout:DEFAULT_TIMEOUT];
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController
+                        animated:(BOOL)animated {
+    return [self popToViewController:viewController
+                            animated:animated
+                         withTimeout:DEFAULT_TIMEOUT];
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    return [self popViewControllerAnimated:animated
+                               withTimeout:DEFAULT_TIMEOUT];
+}
+
+#pragma mark Enqueuing
 - (NSMutableArray *)invocationQueue {
     if (!_invocationQueue) {
         _invocationQueue = [NSMutableArray array];
@@ -71,39 +143,136 @@
     return _invocationQueue;
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)pushViewController:(UIViewController *)viewController
+                  animated:(BOOL)animated
+               withTimeout:(NSTimeInterval)timeout {
     if (self.isTransitioning) {
-        NSMethodSignature *methodSignature = [NSMethodSignature methodSignatureForSelector:_cmd];
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-        [invocation setTarget:self];
-        [invocation setArgument:&viewController atIndex:0];
-        [invocation setArgument:&@(animated) atIndex:1];
+        NSDate *limitTime = [NSDate dateWithTimeIntervalSinceNow:timeout];
+        
+        void(^block)(void) = ^{
+            if ([[NSDate date] compare:limitTime] != NSOrderedDescending) {
+                [self pushViewController:viewController
+                                animated:animated];
+            }
+        };
+        
+        [self.invocationQueue addObject:block];
     }
     else {
-        [super pushViewController:viewController animated:animated];
+        [super pushViewController:viewController
+                         animated:animated];
+    }
+}
+
+- (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
+                                 withTimeout:(NSTimeInterval)timeout {
+    if (self.isTransitioning) {
+        NSDate *limitTime = [NSDate dateWithTimeIntervalSinceNow:timeout];
+        
+        InvocationBlock block = ^{
+            if ([[NSDate date] compare:limitTime] != NSOrderedDescending) {
+                [self popToRootViewControllerAnimated:animated];
+                
+                return YES;
+            }
+            else {
+                return NO;
+            }
+        };
+        
+        [self.invocationQueue addObject:block];
+        
+        return nil;
+    }
+    else {
+        return [super popToRootViewControllerAnimated:animated];
+    }
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController
+                        animated:(BOOL)animated
+                     withTimeout:(NSTimeInterval)timeout {
+    if (self.isTransitioning) {
+        NSDate *limitTime = [NSDate dateWithTimeIntervalSinceNow:timeout];
+        
+        void(^block)(void) = ^{
+            if ([[NSDate date] compare:limitTime] != NSOrderedDescending) {
+                [self popToViewController:viewController
+                                 animated:animated];
+            }
+        };
+        
+        [self.invocationQueue addObject:block];
+        
+        return nil;
+    }
+    else {
+        return [super popToViewController:viewController
+                                 animated:animated];
+    }
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated withTimeout:(NSTimeInterval)timeout {
+    if (self.isTransitioning) {
+        NSDate *limitTime = [NSDate dateWithTimeIntervalSinceNow:timeout];
+        
+        void(^block)(void) = ^{
+            if ([[NSDate date] compare:limitTime] != NSOrderedDescending) {
+                [self popViewControllerAnimated:animated];
+            }
+        };
+        
+        [self.invocationQueue addObject:block];
+        
+        return nil;
+    }
+    else {
+        return [super popViewControllerAnimated:animated];
     }
 }
 
 #pragma mark Method Swizzling
-- (void)setOriginalDelegate:(id<UINavigationControllerDelegate>)foDelegate {
-    _originalDelegate = foDelegate;
+- (void)setOriginalDelegate:(id<UINavigationControllerDelegate>)originalDelegate {
+    _originalDelegate = originalDelegate;
 }
 
 #pragma mark - Protocols
 #pragma mark UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)navigationController:(UINavigationController *)navigationController
+       didShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
     self.isTransitioning = NO;
     
     if (self.originalDelegate && [self.originalDelegate respondsToSelector:@selector(navigationController:didShowViewController:animated:)]) {
-        [self.originalDelegate navigationController:navigationController didShowViewController:viewController animated:animated];
+        [self.originalDelegate navigationController:navigationController
+                              didShowViewController:viewController
+                                           animated:animated];
     }
+    
+    BOOL executed;
+    
+    do {
+        InvocationBlock block = self.invocationQueue.firstObject;
+        if (block) {
+            executed = block();
+            [self.invocationQueue removeObject:block];
+        }
+        else {
+            executed = YES;
+        }
+    } while (!executed);
+    
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
     self.isTransitioning = YES;
     
     if (self.originalDelegate && [self.originalDelegate respondsToSelector:@selector(navigationController:willShowViewController:animated:)]) {
-        [self.originalDelegate navigationController:navigationController willShowViewController:viewController animated:animated];
+        [self.originalDelegate navigationController:navigationController
+                             willShowViewController:viewController
+                                           animated:animated];
     }
 }
 
