@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23339EBF18DDE1140060712C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EBE18DDE1140060712C /* Foundation.framework */; };
+		23339EC118DDE1140060712C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EC018DDE1140060712C /* CoreGraphics.framework */; };
+		23339EC318DDE1140060712C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EC218DDE1140060712C /* UIKit.framework */; };
+		23339EC918DDE1140060712C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23339EC718DDE1140060712C /* InfoPlist.strings */; };
+		23339ECB18DDE1140060712C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23339ECA18DDE1140060712C /* main.m */; };
+		23339ECF18DDE1140060712C /* FOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23339ECE18DDE1140060712C /* FOAppDelegate.m */; };
+		23339ED218DDE1140060712C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23339ED018DDE1140060712C /* Main_iPhone.storyboard */; };
+		23339ED518DDE1140060712C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23339ED318DDE1140060712C /* Main_iPad.storyboard */; };
+		23339ED818DDE1140060712C /* FOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23339ED718DDE1140060712C /* FOViewController.m */; };
+		23339EDA18DDE1140060712C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23339ED918DDE1140060712C /* Images.xcassets */; };
+		23339EE118DDE1140060712C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EE018DDE1140060712C /* XCTest.framework */; };
+		23339EE218DDE1140060712C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EBE18DDE1140060712C /* Foundation.framework */; };
+		23339EE318DDE1140060712C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23339EC218DDE1140060712C /* UIKit.framework */; };
+		23339EEB18DDE1140060712C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23339EE918DDE1140060712C /* InfoPlist.strings */; };
+		23339EED18DDE1140060712C /* FOQueuedNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23339EEC18DDE1140060712C /* FOQueuedNavigationControllerTests.m */; };
+		23339EF818DDE21A0060712C /* FOQueuedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23339EF718DDE21A0060712C /* FOQueuedNavigationController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23339EE418DDE1140060712C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23339EB318DDE1140060712C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23339EBA18DDE1140060712C;
+			remoteInfo = FOQueuedNavigationController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23339EBB18DDE1140060712C /* FOQueuedNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOQueuedNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23339EBE18DDE1140060712C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		23339EC018DDE1140060712C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		23339EC218DDE1140060712C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		23339EC618DDE1140060712C /* FOQueuedNavigationController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOQueuedNavigationController-Info.plist"; sourceTree = "<group>"; };
+		23339EC818DDE1140060712C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23339ECA18DDE1140060712C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23339ECC18DDE1140060712C /* FOQueuedNavigationController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOQueuedNavigationController-Prefix.pch"; sourceTree = "<group>"; };
+		23339ECD18DDE1140060712C /* FOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOAppDelegate.h; sourceTree = "<group>"; };
+		23339ECE18DDE1140060712C /* FOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOAppDelegate.m; sourceTree = "<group>"; };
+		23339ED118DDE1140060712C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		23339ED418DDE1140060712C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		23339ED618DDE1140060712C /* FOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOViewController.h; sourceTree = "<group>"; };
+		23339ED718DDE1140060712C /* FOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOViewController.m; sourceTree = "<group>"; };
+		23339ED918DDE1140060712C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23339EDF18DDE1140060712C /* FOQueuedNavigationControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOQueuedNavigationControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23339EE018DDE1140060712C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		23339EE818DDE1140060712C /* FOQueuedNavigationControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOQueuedNavigationControllerTests-Info.plist"; sourceTree = "<group>"; };
+		23339EEA18DDE1140060712C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23339EEC18DDE1140060712C /* FOQueuedNavigationControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOQueuedNavigationControllerTests.m; sourceTree = "<group>"; };
+		23339EF618DDE21A0060712C /* FOQueuedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOQueuedNavigationController.h; sourceTree = "<group>"; };
+		23339EF718DDE21A0060712C /* FOQueuedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOQueuedNavigationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23339EB818DDE1140060712C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339EC118DDE1140060712C /* CoreGraphics.framework in Frameworks */,
+				23339EC318DDE1140060712C /* UIKit.framework in Frameworks */,
+				23339EBF18DDE1140060712C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23339EDC18DDE1140060712C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339EE118DDE1140060712C /* XCTest.framework in Frameworks */,
+				23339EE318DDE1140060712C /* UIKit.framework in Frameworks */,
+				23339EE218DDE1140060712C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23339EB218DDE1140060712C = {
+			isa = PBXGroup;
+			children = (
+				23339EC418DDE1140060712C /* FOQueuedNavigationController */,
+				23339EE618DDE1140060712C /* FOQueuedNavigationControllerTests */,
+				23339EBD18DDE1140060712C /* Frameworks */,
+				23339EBC18DDE1140060712C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23339EBC18DDE1140060712C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23339EBB18DDE1140060712C /* FOQueuedNavigationController.app */,
+				23339EDF18DDE1140060712C /* FOQueuedNavigationControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23339EBD18DDE1140060712C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23339EBE18DDE1140060712C /* Foundation.framework */,
+				23339EC018DDE1140060712C /* CoreGraphics.framework */,
+				23339EC218DDE1140060712C /* UIKit.framework */,
+				23339EE018DDE1140060712C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23339EC418DDE1140060712C /* FOQueuedNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				23339ECD18DDE1140060712C /* FOAppDelegate.h */,
+				23339ECE18DDE1140060712C /* FOAppDelegate.m */,
+				23339ED018DDE1140060712C /* Main_iPhone.storyboard */,
+				23339ED318DDE1140060712C /* Main_iPad.storyboard */,
+				23339ED618DDE1140060712C /* FOViewController.h */,
+				23339ED718DDE1140060712C /* FOViewController.m */,
+				23339ED918DDE1140060712C /* Images.xcassets */,
+				23339EF618DDE21A0060712C /* FOQueuedNavigationController.h */,
+				23339EF718DDE21A0060712C /* FOQueuedNavigationController.m */,
+				23339EC518DDE1140060712C /* Supporting Files */,
+			);
+			path = FOQueuedNavigationController;
+			sourceTree = "<group>";
+		};
+		23339EC518DDE1140060712C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23339EC618DDE1140060712C /* FOQueuedNavigationController-Info.plist */,
+				23339EC718DDE1140060712C /* InfoPlist.strings */,
+				23339ECA18DDE1140060712C /* main.m */,
+				23339ECC18DDE1140060712C /* FOQueuedNavigationController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23339EE618DDE1140060712C /* FOQueuedNavigationControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				23339EEC18DDE1140060712C /* FOQueuedNavigationControllerTests.m */,
+				23339EE718DDE1140060712C /* Supporting Files */,
+			);
+			path = FOQueuedNavigationControllerTests;
+			sourceTree = "<group>";
+		};
+		23339EE718DDE1140060712C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23339EE818DDE1140060712C /* FOQueuedNavigationControllerTests-Info.plist */,
+				23339EE918DDE1140060712C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23339EBA18DDE1140060712C /* FOQueuedNavigationController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23339EF018DDE1140060712C /* Build configuration list for PBXNativeTarget "FOQueuedNavigationController" */;
+			buildPhases = (
+				23339EB718DDE1140060712C /* Sources */,
+				23339EB818DDE1140060712C /* Frameworks */,
+				23339EB918DDE1140060712C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FOQueuedNavigationController;
+			productName = FOQueuedNavigationController;
+			productReference = 23339EBB18DDE1140060712C /* FOQueuedNavigationController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23339EDE18DDE1140060712C /* FOQueuedNavigationControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23339EF318DDE1140060712C /* Build configuration list for PBXNativeTarget "FOQueuedNavigationControllerTests" */;
+			buildPhases = (
+				23339EDB18DDE1140060712C /* Sources */,
+				23339EDC18DDE1140060712C /* Frameworks */,
+				23339EDD18DDE1140060712C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23339EE518DDE1140060712C /* PBXTargetDependency */,
+			);
+			name = FOQueuedNavigationControllerTests;
+			productName = FOQueuedNavigationControllerTests;
+			productReference = 23339EDF18DDE1140060712C /* FOQueuedNavigationControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23339EB318DDE1140060712C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FO;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Fábio Oliveira";
+				TargetAttributes = {
+					23339EDE18DDE1140060712C = {
+						TestTargetID = 23339EBA18DDE1140060712C;
+					};
+				};
+			};
+			buildConfigurationList = 23339EB618DDE1140060712C /* Build configuration list for PBXProject "FOQueuedNavigationController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23339EB218DDE1140060712C;
+			productRefGroup = 23339EBC18DDE1140060712C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23339EBA18DDE1140060712C /* FOQueuedNavigationController */,
+				23339EDE18DDE1140060712C /* FOQueuedNavigationControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23339EB918DDE1140060712C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339ED518DDE1140060712C /* Main_iPad.storyboard in Resources */,
+				23339EDA18DDE1140060712C /* Images.xcassets in Resources */,
+				23339ED218DDE1140060712C /* Main_iPhone.storyboard in Resources */,
+				23339EC918DDE1140060712C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23339EDD18DDE1140060712C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339EEB18DDE1140060712C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23339EB718DDE1140060712C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339ECB18DDE1140060712C /* main.m in Sources */,
+				23339ECF18DDE1140060712C /* FOAppDelegate.m in Sources */,
+				23339ED818DDE1140060712C /* FOViewController.m in Sources */,
+				23339EF818DDE21A0060712C /* FOQueuedNavigationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23339EDB18DDE1140060712C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23339EED18DDE1140060712C /* FOQueuedNavigationControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23339EE518DDE1140060712C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23339EBA18DDE1140060712C /* FOQueuedNavigationController */;
+			targetProxy = 23339EE418DDE1140060712C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23339EC718DDE1140060712C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23339EC818DDE1140060712C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		23339ED018DDE1140060712C /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23339ED118DDE1140060712C /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		23339ED318DDE1140060712C /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23339ED418DDE1140060712C /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		23339EE918DDE1140060712C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23339EEA18DDE1140060712C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23339EEE18DDE1140060712C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23339EEF18DDE1140060712C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23339EF118DDE1140060712C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FOQueuedNavigationController/FOQueuedNavigationController-Prefix.pch";
+				INFOPLIST_FILE = "FOQueuedNavigationController/FOQueuedNavigationController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		23339EF218DDE1140060712C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FOQueuedNavigationController/FOQueuedNavigationController-Prefix.pch";
+				INFOPLIST_FILE = "FOQueuedNavigationController/FOQueuedNavigationController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		23339EF418DDE1140060712C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FOQueuedNavigationController.app/FOQueuedNavigationController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FOQueuedNavigationController/FOQueuedNavigationController-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FOQueuedNavigationControllerTests/FOQueuedNavigationControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		23339EF518DDE1140060712C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FOQueuedNavigationController.app/FOQueuedNavigationController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FOQueuedNavigationController/FOQueuedNavigationController-Prefix.pch";
+				INFOPLIST_FILE = "FOQueuedNavigationControllerTests/FOQueuedNavigationControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23339EB618DDE1140060712C /* Build configuration list for PBXProject "FOQueuedNavigationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23339EEE18DDE1140060712C /* Debug */,
+				23339EEF18DDE1140060712C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23339EF018DDE1140060712C /* Build configuration list for PBXNativeTarget "FOQueuedNavigationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23339EF118DDE1140060712C /* Debug */,
+				23339EF218DDE1140060712C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23339EF318DDE1140060712C /* Build configuration list for PBXNativeTarget "FOQueuedNavigationControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23339EF418DDE1140060712C /* Debug */,
+				23339EF518DDE1140060712C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23339EB318DDE1140060712C /* Project object */;
+}
